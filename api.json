@@ -7,7 +7,7 @@
 	},
 	"host": "microsoft-apiapp73c58088f27d47929f2b28fdeb36b4cd.azurewebsites.net:443",
 	"schemes": ["http", "https"],
-  "basePath": "/api",
+  "basePath": "/api/data",
 	"paths": {
 		"/test": {
 			"get": {
