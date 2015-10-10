@@ -1,6 +1,6 @@
 git add -A
 git commit -m "$1"
 git pull
-git pull upstream master
+git pull upstream
 git push
-git push upstream master
+git push upstream
