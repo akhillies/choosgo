@@ -5,9 +5,9 @@
 		"title": "FoodTrucks",
     "description": "An TryApp sample API App where you can find Food trucks."
 	},
-	"host": "microsoft-apiapp1fe6951749ff4b76b8cc9194bc29ba61.azurewebsites.net:443",
+	"host": "microsoft-apiapp73c58088f27d47929f2b28fdeb36b4cd.azurewebsites.net:443",
 	"schemes": ["http", "https"],
-  "basePath": "/api/data",
+  "basePath": "/api",
 	"paths": {
 		"/test": {
 			"get": {
@@ -22,63 +22,7 @@
 					"200": {
 						"description": "OK",
 						"schema": {
-							"type": "array",
-							"items": {
-								"$ref": "#/definitions/Restaurant"
-							}
-						}
-					}
-				},
-				"deprecated": false
-			}
-		},
-		"/foodtrucks": {
-			"get": {
-				"tags": ["FoodTrucks"],
-				"operationId": "getFoodTrucks",
-				"consumes": [],
-				"produces": ["application/json",
-				"text/json",
-				"application/xml",
-				"text/xml"],
-				"responses": {
-					"200": {
-						"description": "OK",
-						"schema": {
-							"type": "array",
-							"items": {
-								"$ref": "#/definitions/Restaurant"
-							}
-						}
-					}
-				},
-				"deprecated": false
-			}
-		},
-		"/foodtrucks/{id}": {
-			"get": {
-				"tags": ["FoodTrucks"],
-				"operationId": "getFoodTruckDetails",
-				"consumes": [],
-				"produces": ["application/json",
-				"text/json",
-				"application/xml",
-				"text/xml"],
-				"parameters": [{
-					"name": "id",
-					"in": "path",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				}],
-				"responses": {
-					"200": {
-						"description": "OK",
-						"schema": {
-							"type": "array",
-							"items": {
-								"$ref": "#/definitions/Restaurant"
-							}
+                            "type": "string"
 						}
 					}
 				},
