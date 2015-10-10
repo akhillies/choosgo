@@ -9,7 +9,7 @@ angular.module('myApp').directive('actorTile', function () {
       actor: '='
     },
     replace: true,
-    templateUrl: 'actor-tile-template.html',
+    templateUrl: 'html/actor-tile-template.html',
     link: function (scope, elem, attrs) {
       scope.hi = function () {
         alert('Why hello there, I\'m ' + scope.actor.name + '.');
@@ -24,7 +24,7 @@ angular.module('myApp').directive('actorTile', function () {
 angular.module('myApp').controller('myCtrl', function ($scope) {
   $scope.mutants = [
     {
-      name: 'Wolverine',
+      name: 'Golden Gate Bridge',
       actor: 'Hugh Jackman',
       image: 'https://latimesherocomplex.files.wordpress.com/2030/04/hughjackman4.jpg'
     },
