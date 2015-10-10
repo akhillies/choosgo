@@ -2,27 +2,27 @@
 
 angular.module('myApp', []);
 
-angular.module('myApp').directive('database', function () {
+angular.module('myApp').directive('dataBase', function () {
     return {
       restrict: 'A',
       scope: {
         actor: '='
       },
       replace: true,
-      templateUrl: 'html/database.html',
+      templateUrl: 'html/data-base.html',
       link: function (scope, elem, attrs) {
         scope.hi = function () {
-          alert('Why hello there, I\'m ' + scope.database.name + '.');
+          alert('Why hello there, I\'m ' + scope.data.name + '.');
         };
         elem.find('img').on('click', function () {
-          window.open(scope.database.image);
+          window.open(scope.data.image);
         });
       }
     };
 });
 
 angular.module('myApp').controller('myCtrl', function ($scope) {
-  $scope.database = [
+  $scope.locations = [
     {
       name: 'Wolverine',
       actor: 'Hugh Jackman',
