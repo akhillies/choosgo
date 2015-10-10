@@ -9,7 +9,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.actor-tile {
+.act-tile {
   border: 1px solid lightgray;
   padding: 5px;
   border-radius: 3px;
@@ -19,11 +19,11 @@ body {
   float: left;
 }
 
-.actor-tile img {
+.act-tile img {
   margin-top: 5px;
   width: 100%;
 }
 
-.actor-tile button {
+.act-tile button {
   width: 100%;
 }
