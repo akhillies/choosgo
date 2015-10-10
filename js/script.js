@@ -2,20 +2,20 @@
 
 angular.module('myApp', []);
 
-angular.module('myApp').directive('dataBase', function () {
+angular.module('myApp').directive('actorTile', function () {
   return {
     restrict: 'A',
     scope: {
-      dataB: '='
+      actor: '='
     },
     replace: true,
     templateUrl: 'html/actor-tile-template.html',
     link: function (scope, elem, attrs) {
       scope.hi = function () {
-        alert('Why hello there, I\'m ' + scope.dataB.name + '.');
+        alert('Why hello there, I\'m ' + scope.actor.name + '.');
       };
       elem.find('img').on('click', function () {
-        window.open(scope.dataB.image);
+        window.open(scope.actor.image);
       });
     }
   };
