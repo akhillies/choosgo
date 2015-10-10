@@ -9,7 +9,7 @@ angular.module('myApp').directive('actorTile', function () {
       actor: '='
     },
     replace: true,
-    templateUrl: 'html/actor-tile-template.html',
+    templateUrl: 'html/data-base-template.html',
     link: function (scope, elem, attrs) {
       scope.hi = function () {
         alert('Why hello there, I\'m ' + scope.actor.name + '.');
