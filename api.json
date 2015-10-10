@@ -8,7 +8,24 @@
 	"host": "microsoft-apiapp1fe6951749ff4b76b8cc9194bc29ba61.azurewebsites.net:443",
 	"schemes": ["http", "https"],
   "basePath": "/api/data",
-	"paths": {
+	"paths": 
+		"/apitest": {
+			"get": {
+				"tags": ["FoodTrucks"],
+				"operationId": "getFoodTrucks",
+				"consumes": [],
+				"produces": ["text/json"]
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},{
 		"/foodtrucks": {
 			"get": {
 				"tags": ["FoodTrucks"],
