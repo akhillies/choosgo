@@ -19,7 +19,8 @@
 					"200": {
 						"description": "OK",
 						"schema": {
-							"type": "string"
+							"type": "string",
+                            "response": "default";
 						}
 					}
 				},
