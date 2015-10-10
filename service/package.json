@@ -7,7 +7,9 @@
     "node": ">= 0.8.19"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+      "node-bing-api": ">=2.0.0"
+  },
   "scripts": {},
   "author": "unknown",
   "licenses": [],
