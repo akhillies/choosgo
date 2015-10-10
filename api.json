@@ -9,6 +9,21 @@
 	"schemes": ["http", "https"],
   "basePath": "/api/data",
 	"paths": {
+		"/test": {
+			"get": {
+				"tags": ["test"],
+				"operationId": "test",
+				"consumes": [],
+				"produces": [],
+				"responses": {
+					"200": {
+						"description": "OK",
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
 		"/foodtrucks": {
 			"get": {
 				"tags": ["FoodTrucks"],
