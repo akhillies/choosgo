@@ -17,17 +17,12 @@ body > img {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="images/ChoosGo_Icon.png">
 </head>
-<body>
-  <h1 class="project-name">ChoosGo</h1>
-  <h2 class="project-tagline">calhacks 2.0 project</h2>
-  <img src="images/ChoosGo_Logo_Light.png" alt="Logo did not load"/>
+<body ng-controller="myCtrl">
+  <div ng-repeat="m in mutants">
+    <div actor-tile actor="m"></div>
+  </div>
 </body>
 <script>
-var Bing = require('node-bing-api')({ accKey: "your-account-key" });
-Bing.images("Ninja Turtles", {skip: 50}, function(error, res, body){
-  console.log(body);
-});
-console.log("Reached");
 </script>
 </html>
 
