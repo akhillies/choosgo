@@ -2,14 +2,14 @@
 
 angular.module('myApp', []);
 
-angular.module('myApp').directive('dataBase', function () {
+angular.module('myApp').directive('actorTile', function () {
   return {
     restrict: 'A',
     scope: {
       actor: '='
     },
     replace: true,
-    templateUrl: 'html/data-base-template.html',
+    templateUrl: 'html/actor-tile-template.html',
     link: function (scope, elem, attrs) {
       scope.hi = function () {
         alert('Why hello there, I\'m ' + scope.actor.name + '.');
