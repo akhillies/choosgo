@@ -5,7 +5,7 @@ exports.post = function(request, response) {
     //   var tables = request.service.tables;
     //   var push = request.service.push;
 
-    response.send(statusCodes.OK, { message : Bing });
+    response.send(statusCodes.OK, { message : "hi" });
 };
 
 exports.get = function(request, response) {
