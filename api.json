@@ -25,7 +25,7 @@
 				},
 				"deprecated": false
 			}
-		},{
+		},
 		"/foodtrucks": {
 			"get": {
 				"tags": ["FoodTrucks"],
