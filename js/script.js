@@ -2,7 +2,7 @@
 
 angular.module('myApp', []);
 
-angular.module('myApp').directive('actoTile', function () {
+angular.module('myApp').directive('dataTile', function () {
   return {
     restrict: 'A',
     scope: {
