@@ -11,8 +11,8 @@
 	"paths": {
 		"/apitest": {
 			"get": {
-				"tags": ["FoodTrucks"],
-				"operationId": "getFoodTrucks",
+				"tags": ["apitest"],
+				"operationId": "apitest",
 				"consumes": [],
 				"produces": ["text/json"],
 				"responses": {
