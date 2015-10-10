@@ -28,6 +28,26 @@
 				},
 				"deprecated": false
 			}
+		},
+		"/apitest": {
+			"get": {
+				"tags": ["test"],
+				"operationId": "test",
+				"consumes": [],
+				"produces": ["application/json",
+				"text/json",
+				"application/xml",
+				"text/xml"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+                            "type": "string"
+						}
+					}
+				},
+				"deprecated": false
+			}
 		}
 	},
 	"definitions": {
