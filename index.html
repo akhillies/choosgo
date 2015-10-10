@@ -8,11 +8,9 @@
 
 <body ng-controller="myCtrl">
 
-  <div ng-repeat="m in mutants">
-    <h3>{{ m.name }} </h3>
-    <p>{{ m.actor }}</p>
-    <img width=100 ng-src="{{ m.image }}" ></img>
-  </div>
+   <div ng-repeat="m in mutants">
+      <div actor-tile actor="m"></div>
+    </div>
 
 </body>
 </html>
