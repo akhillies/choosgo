@@ -3,7 +3,7 @@
 
 module.exports = {
     get: function (req, res) {
-        alert("reach me!");
+        res.json(JSON.stringify(req));
     }
 };
 

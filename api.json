@@ -14,10 +14,18 @@
 				"tags": ["test"],
 				"operationId": "test",
 				"consumes": [],
-				"produces": [],
+				"produces": ["application/json",
+				"text/json",
+				"application/xml",
+				"text/xml"],
 				"responses": {
 					"200": {
 						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Restaurant"
+							}
 						}
 					}
 				},
