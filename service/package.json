@@ -6,10 +6,10 @@
   "engines": {
     "node": ">= 0.8.19"
   },
-  "dependencies": {},
-  "devDependencies": {
-      "node-bing-api": ">=2.0.0"
+  "dependencies": {
+    "node-bing-api": "2.0.0"
   },
+  "devDependencies": {},
   "scripts": {},
   "author": "unknown",
   "licenses": [],
