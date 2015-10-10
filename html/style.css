@@ -9,7 +9,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.act-tile {
+.datar-base {
   border: 1px solid lightgray;
   padding: 5px;
   border-radius: 3px;
@@ -19,11 +19,11 @@ body {
   float: left;
 }
 
-.act-tile img {
+.datar-base img {
   margin-top: 5px;
   width: 100%;
 }
 
-.act-tile button {
+.datar-base button {
   width: 100%;
 }

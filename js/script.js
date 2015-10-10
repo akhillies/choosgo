@@ -2,7 +2,7 @@
 
 angular.module('myApp', []);
 
-angular.module('myApp').directive('actTile', function () {
+angular.module('myApp').directive('datarBase', function () {
   return {
     restrict: 'A',
     scope: {
