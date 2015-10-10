@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body >
+
+<script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js" ></script>
+    <script type="text/javascript">
+var client = new WindowsAzure.MobileServiceClient(
+    "https://choosgo.azure-mobile.net/",
+    "pOcvEDYJeHjLDeRsaDcQZXFzeBREJm96"
+);
+
+client.invokeApi("choosgo_api", {
+    body: null,
+    method: "get"
+}).done(function (results) {
+    var message = results;
+    console.log(message);
+}, function(error) {
+    alert(error.message);
+});
+</script>
+</body>
+</html>
+
