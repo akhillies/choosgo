@@ -2,7 +2,7 @@
 
 angular.module('myApp', []);
 
-angular.module('myApp').directive('actorTil', function () {
+angular.module('myApp').directive('dataBase', function () {
   return {
     restrict: 'A',
     scope: {
