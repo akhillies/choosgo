@@ -2,27 +2,27 @@
 
 angular.module('myApp', []);
 
-angular.module('myApp').directive('dataBase', function () {
-    return {
-      restrict: 'A',
-      scope: {
-        actor: '='
-      },
-      replace: true,
-      templateUrl: 'html/data-base.html',
-      link: function (scope, elem, attrs) {
-        scope.hi = function () {
-          alert('Why hello there, I\'m ' + scope.data1.name + '.');
-        };
-        elem.find('img').on('click', function () {
-          window.open(scope.data1.image);
-        });
-      }
-    };
+angular.module('myApp').directive('actorTile', function () {
+  return {
+    restrict: 'A',
+    scope: {
+      actor: '='
+    },
+    replace: true,
+    templateUrl: 'actor-tile-template.html',
+    link: function (scope, elem, attrs) {
+      scope.hi = function () {
+        alert('Why hello there, I\'m ' + scope.actor.name + '.');
+      };
+      elem.find('img').on('click', function () {
+        window.open(scope.actor.image);
+      });
+    }
+  };
 });
 
 angular.module('myApp').controller('myCtrl', function ($scope) {
-  $scope.locations = [
+  $scope.mutants = [
     {
       name: 'Wolverine',
       actor: 'Hugh Jackman',
