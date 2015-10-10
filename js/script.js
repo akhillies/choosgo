@@ -6,7 +6,7 @@ angular.module('myApp').directive('actorTile', function () {
   return {
     restrict: 'A',
     scope: {
-      actor: '='
+      dataB: '='
     },
     replace: true,
     templateUrl: 'html/actor-tile-template.html',
