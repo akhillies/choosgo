@@ -6,7 +6,7 @@ angular.module('myApp').directive('dataBase', function () {
   return {
     restrict: 'A',
     scope: {
-      actor: '='
+      dataR: '='
     },
     replace: true,
     templateUrl: 'html/data-base-template.html',
