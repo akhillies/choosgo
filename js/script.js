@@ -12,10 +12,10 @@ angular.module('myApp').directive('dataBase', function () {
       templateUrl: 'html/data-base.html',
       link: function (scope, elem, attrs) {
         scope.hi = function () {
-          alert('Why hello there, I\'m ' + scope.data.name + '.');
+          alert('Why hello there, I\'m ' + scope.data1.name + '.');
         };
         elem.find('img').on('click', function () {
-          window.open(scope.data.image);
+          window.open(scope.data1.image);
         });
       }
     };
