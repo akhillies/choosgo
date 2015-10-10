@@ -2,7 +2,7 @@
 
 angular.module('myApp', []);
 
-angular.module('myApp').directive('actorTile', function () {
+angular.module('myApp').directive('actorTil', function () {
   return {
     restrict: 'A',
     scope: {
