@@ -2,6 +2,25 @@
 
 angular.module('myApp', []);
 
+angular.module('myApp').directive('actorTile', function () {
+    return {
+      restrict: 'A',
+      scope: {
+        actor: '='
+      },
+      replace: true,
+      templateUrl: 'html/actor-tile-template.html',
+      link: function (scope, elem, attrs) {
+        scope.hi = function () {
+          alert('Why hello there, I\'m ' + scope.actor.name + '.');
+        };
+        elem.find('img').on('click', function () {
+          window.open(scope.actor.image);
+        });
+      }
+    };
+});
+
 angular.module('myApp').controller('myCtrl', function ($scope) {
   $scope.mutants = [
     {
@@ -12,8 +31,8 @@ angular.module('myApp').controller('myCtrl', function ($scope) {
     {
       name: 'Cyclops',
       actor: 'James Marsden',
-      image: 'https://pmcdeadline2.files.wordpress.com/2013/01/patrickheadshot.rt__130116211928.jpg'
-    }
+      image: 'http://www.nbc.com/the-tonight-show/content/sites/nbcutsjf/files/styles/bit_stacked_resized/public/images/2014/09/23/james-marsden-.jpg.jpeg?itok=PeCqw-9O'
+    },
     {
       name: 'Professor X',
       actor: 'Patrick Stewart',
