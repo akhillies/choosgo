@@ -22,11 +22,11 @@ angular.module('myApp').directive('actorTile', function () {
 });
 
 angular.module('myApp').controller('myCtrl', function ($scope) {
-  $scope.mutants = [
+  $scope.locations = [
     {
       name: 'Golden Gate Bridge',
-      actor: 'Hugh Jackman',
-      image: 'https://latimesherocomplex.files.wordpress.com/2030/04/hughjackman4.jpg'
+      actor: '1700 Fillmore St, San Francisco, CA 94115',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Ggb_by_night.jpg'
     },
     {
       name: 'Cyclops',
