@@ -8,7 +8,7 @@
 
 $acctKey = 'N8JQlgOENSErzxhUUW6wMnn28AOhXRa8afHcORpmyZg=';
 
-$rootUri = 'https://api.datamarket.azure.com/Bing/Search';
+$rootUri = 'https://api.datamarket.azure.com/Bing/SearchWeb';
 
 // Read the contents of the .html file into a string.
 
