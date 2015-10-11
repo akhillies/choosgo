@@ -227,26 +227,28 @@
             var tallyY = 0;
             var count = 0;
             for(var looper in informationStored){
-                if(informationStored[looper].coordinates.match(/[a-z]/i)){
+                if(informationStored[looper].coordinates.match(/[a-z]/i)|| informationStored[looper] == null) {
                     delete informationStored[looper];
                 }
                 else{
-                    tallyX = tallyX + informationStored[looper].coordinates[0];
-                    tallyY = tallyY + informationStored[looper].coordinates[1];
+                    var coordinatePair = informationStored[looper].coordinates.split(",");
+                    tallyX = tallyX + parseFloat(coordinatePair[0]);
+                    tallyY = tallyY + parseFloat(coordinatePair[1]);
                     count += 1;
                 }
             }
             tallyX = tallyX/count;
             tallyY = tallyY/count;
 
-//            for(var looper in informationStored){
-//                if(informationStored[looper].coordinates[0] > tallyX + .15 || informationStored[looper].coordinates[0] < tallyX + .15){
-//                    delete informationStored[looper];
-//                }
-//                else if(informationStored[looper].coordinates[1] > tallyY + .15 || informationStored[looper].coordinates[1] < tallyY + .15){
-//                    delete informationStored[looper];
-//                }
-//            }
+            for(var looper in informationStored){
+                var coordinatePair = informationStored[looper].coordinates.split(",");
+                if(parseFloat(coordinatePair[0]) > tallyX + 1.5 || parseFloat(coordinatePair[0]) < tallyX - 1.5){
+                    delete informationStored[looper];
+                }
+                else if(parseFloat(coordinatePair[1]) > tallyY + 1.5 || parseFloat(coordinatePair[1]) < tallyY - 1.5){
+                    delete informationStored[looper];
+                }
+            }
             return informationStored;
         }
     </script>
