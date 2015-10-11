@@ -2,41 +2,41 @@
 
 angular.module('myApp', []);
 
-angular.module('myApp').directive('datarBase', function () {
+angular.module('myApp').directive('actorTile', function () {
   return {
     restrict: 'A',
     scope: {
-      datar: '='
+      actor: '='
     },
     replace: true,
-    templateUrl: 'html/data-base-template.html',
+    templateUrl: 'html/actor-tile-template.html',
     link: function (scope, elem, attrs) {
       scope.hi = function () {
-        alert('Why hello there, I\'m ' + scope.datar.name + '.');
+        alert('Why hello there, I\'m ' + scope.actor.name + '.');
       };
       elem.find('img').on('click', function () {
-        window.open(scope.datar.image);
+        window.open(scope.actor.image);
       });
     }
   };
 });
 
 angular.module('myApp').controller('myCtrl', function ($scope) {
-  $scope.locations = [
+  $scope.mutants = [
     {
-      name: 'Golden Gate Bridge',
-      actor: 'Golden Gate Bridge, California',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Ggb_by_night.jpg'
+      name: 'Wolverine',
+      actor: 'Hugh Jackman',
+      image: 'https://latimesherocomplex.files.wordpress.com/2030/04/hughjackman4.jpg'
     },
     {
-      name: 'Dosa!',
-      actor: '1700 Fillmore St, San Francisco, CA 94115',
-      image: 'http://www.sfstation.com/files/2011/06/dosa.jpg'
+      name: 'Cyclops',
+      actor: 'James Marsden',
+      image: 'http://s3.amazonaws.com/cmi-niche/assets/pictures/39932/content_James-Marsden-Los-Angeles-Confidential-1.jpg?1411489304'
     },
     {
-      name: 'Golden Gate Park',
-      actor: 'San Francisco, CA',
-      image: 'http://img.timeinc.net/time/photoessays/2008/san_francisco/sf_golden_gate.jpg'
+      name: 'Professor X',
+      actor: 'Patrick Stewart',
+      image: 'https://pmcdeadline2.files.wordpress.com/2013/01/patrickheadshot.rt__130116211928.jpg'
     }
   ];
 });

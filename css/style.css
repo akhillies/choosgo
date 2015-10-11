@@ -9,7 +9,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.datar-base {
+.actor-tile {
   border: 1px solid lightgray;
   padding: 5px;
   border-radius: 3px;
@@ -17,14 +17,13 @@ body {
   margin: 10px;
   max-width: 150px;
   float: left;
-  z-index = +1
 }
 
-.datar-base img {
+.actor-tile img {
   margin-top: 5px;
   width: 100%;
 }
 
-.datar-base button {
+.actor-tile button {
   width: 100%;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head ng-app="myApp">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <title>ChoosGo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -30,7 +32,6 @@
 
     <!--ChoosGo Stuff-->
     <script data-require="angular.js@*" data-semver="1.4.0-beta.6" src="https://code.angularjs.org/1.4.0-beta.6/angular.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" /> 
     <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" 
@@ -41,132 +42,141 @@
 </head>
 
 <body ng-controller="myCtrl">
-    <!-- Header -->
-    <header id="top" class="header">
-        <div class="text-vertical-center">
-            <h1>Welcome to ChoosGo</h1>
-            <h3>You Have Fun, We'll Do The Planning</h3>
-            <br>
-        </div>
-    </header>
+<h2>AngularJS directives in action</h2>
+<p>Click on the image to go to the original image, and click "say hi" to be greeted by each actor.</p>
 
-    <!--&lt;!&ndash; Search Box &ndash;&gt;-->
-    <!--<aside class="call-to-action bg-primary">-->
-    <!--</aside>-->
-
-    <!-- Planned Day -->
-        <div id='planned day' class ="plannedDay" ng-repeat="l in locations"> 
-            <div datar-base datar="l"> </div> 
-        </div>
-
-    <section id="portfolio" class="routeMap">
-        <div id='mapContainer' style="position:absolute; width:100%; height:100%; background:grey" ></div>
-    </section>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-<script>
-
-    // Initialize the platform object:
-    var platform = new H.service.Platform({
-        'app_id': 'zrVgyWR41xcFCQZBicxr',
-        'app_code': 'HzXEYVx1Ev27bNQCrCPZ7A'
-    });// Instantiate a map and platform object:
-
-    // Retrieve the target element for the map:
-    var targetElement = document.getElementById('mapContainer');
-
-    // Get the default map types from the platform object:
-    var defaultLayers = platform.createDefaultLayers();
-
-    // Instantiate the map:
-    var map = new H.Map(
-            document.getElementById('mapContainer'),
-            defaultLayers.normal.map,
-            {
-                zoom: 10,
-                center: { lat: 52.51, lng: 13.4 }
-            });
-
-    // Create the parameters for the routing request:
-    var routingParameters = {
-        // The routing mode:
-        'mode': 'fastest;car',
-        // The start point of the route:
-        'waypoint0': 'geo!50.1120423728813,8.68340740740811',
-        // The end point of the route:
-        'waypoint1': 'geo!52.5309916298853,13.3846220493377',
-        // To retrieve the shape of the route we choose the route
-        // representation mode 'display'
-        'representation': 'display'
-    };
-
-    // Define a callback function to process the routing response:
-    var onResult = function(result) {
-        var route,
-                routeShape,
-                startPoint,
-                endPoint,
-                strip;
-        if(result.response.route) {
-            // Pick the first route from the response:
-            route = result.response.route[0];
-            // Pick the route's shape:
-            routeShape = route.shape;
-
-            // Create a strip to use as a point source for the route line
-            strip = new H.geo.Strip();
-
-            // Push all the points in the shape into the strip:
-            routeShape.forEach(function(point) {
-                var parts = point.split(',');
-                strip.pushLatLngAlt(parts[0], parts[1]);
-            });
-
-            // Retrieve the mapped positions of the requested waypoints:
-            startPoint = route.waypoint[0].mappedPosition;
-            endPoint = route.waypoint[1].mappedPosition;
-
-            // Create a polyline to display the route:
-            var routeLine = new H.map.Polyline(strip, {
-                style: { strokeColor: 'blue', lineWidth: 10 }
-            });
-
-            // Create a marker for the start point:
-            var startMarker = new H.map.Marker({
-                lat: startPoint.latitude,
-                lng: startPoint.longitude
-            });
-
-            // Create a marker for the end point:
-            var endMarker = new H.map.Marker({
-                lat: endPoint.latitude,
-                lng: endPoint.longitude
-            });
-
-            // Add the route polyline and the two markers to the map:
-            map.addObjects([routeLine, startMarker, endMarker]);
-
-            // Set the map's viewport to make the whole route visible:
-            map.setViewBounds(routeLine.getBounds());
-        }
-    };
-
-    // Get an instance of the routing service:
-    var router = platform.getRoutingService();
-
-    // Call calculateRoute() with the routing parameters,
-    // the callback and an error callback function (called if a
-    // communication error occurs):
-    router.calculateRoute(routingParameters, onResult,
-            function(error) {
-                alert(error.message);
-            });
-</script>
+<div ng-repeat="m in mutants">
+    <div actor-tile actor="m"></div>
+</div>
 </body>
+
+<!--<body ng-controller="myCtrl">-->
+    <!--&lt;!&ndash; Header &ndash;&gt;-->
+    <!--<header id="top" class="header">-->
+        <!--<div class="text-vertical-center">-->
+            <!--<h1>Welcome to ChoosGo</h1>-->
+            <!--<h3>You Have Fun, We'll Do The Planning</h3>-->
+            <!--<br>-->
+        <!--</div>-->
+    <!--</header>-->
+
+    <!--&lt;!&ndash;&lt;!&ndash; Search Box &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<aside class="call-to-action bg-primary">&ndash;&gt;-->
+    <!--&lt;!&ndash;</aside>&ndash;&gt;-->
+
+    <!--&lt;!&ndash; Planned Day &ndash;&gt;-->
+        <!--<div ng-repeat="l in locations"> -->
+            <!--<div datar-base datar="l"> </div> -->
+        <!--</div>-->
+
+    <!--<section id="portfolio" class="routeMap">-->
+        <!--<div id='mapContainer' style="position:absolute; width:100%; height:100%; background:grey" ></div>-->
+    <!--</section>-->
+
+    <!--&lt;!&ndash; jQuery &ndash;&gt;-->
+    <!--<script src="js/jquery.js"></script>-->
+
+    <!--&lt;!&ndash; Bootstrap Core JavaScript &ndash;&gt;-->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+
+<!--<script>-->
+
+    <!--// Initialize the platform object:-->
+    <!--var platform = new H.service.Platform({-->
+        <!--'app_id': 'zrVgyWR41xcFCQZBicxr',-->
+        <!--'app_code': 'HzXEYVx1Ev27bNQCrCPZ7A'-->
+    <!--});// Instantiate a map and platform object:-->
+
+    <!--// Retrieve the target element for the map:-->
+    <!--var targetElement = document.getElementById('mapContainer');-->
+
+    <!--// Get the default map types from the platform object:-->
+    <!--var defaultLayers = platform.createDefaultLayers();-->
+
+    <!--// Instantiate the map:-->
+    <!--var map = new H.Map(-->
+            <!--document.getElementById('mapContainer'),-->
+            <!--defaultLayers.normal.map,-->
+            <!--{-->
+                <!--zoom: 10,-->
+                <!--center: { lat: 52.51, lng: 13.4 }-->
+            <!--});-->
+
+    <!--// Create the parameters for the routing request:-->
+    <!--var routingParameters = {-->
+        <!--// The routing mode:-->
+        <!--'mode': 'fastest;car',-->
+        <!--// The start point of the route:-->
+        <!--'waypoint0': 'geo!50.1120423728813,8.68340740740811',-->
+        <!--// The end point of the route:-->
+        <!--'waypoint1': 'geo!52.5309916298853,13.3846220493377',-->
+        <!--// To retrieve the shape of the route we choose the route-->
+        <!--// representation mode 'display'-->
+        <!--'representation': 'display'-->
+    <!--};-->
+
+    <!--// Define a callback function to process the routing response:-->
+    <!--var onResult = function(result) {-->
+        <!--var route,-->
+                <!--routeShape,-->
+                <!--startPoint,-->
+                <!--endPoint,-->
+                <!--strip;-->
+        <!--if(result.response.route) {-->
+            <!--// Pick the first route from the response:-->
+            <!--route = result.response.route[0];-->
+            <!--// Pick the route's shape:-->
+            <!--routeShape = route.shape;-->
+
+            <!--// Create a strip to use as a point source for the route line-->
+            <!--strip = new H.geo.Strip();-->
+
+            <!--// Push all the points in the shape into the strip:-->
+            <!--routeShape.forEach(function(point) {-->
+                <!--var parts = point.split(',');-->
+                <!--strip.pushLatLngAlt(parts[0], parts[1]);-->
+            <!--});-->
+
+            <!--// Retrieve the mapped positions of the requested waypoints:-->
+            <!--startPoint = route.waypoint[0].mappedPosition;-->
+            <!--endPoint = route.waypoint[1].mappedPosition;-->
+
+            <!--// Create a polyline to display the route:-->
+            <!--var routeLine = new H.map.Polyline(strip, {-->
+                <!--style: { strokeColor: 'blue', lineWidth: 10 }-->
+            <!--});-->
+
+            <!--// Create a marker for the start point:-->
+            <!--var startMarker = new H.map.Marker({-->
+                <!--lat: startPoint.latitude,-->
+                <!--lng: startPoint.longitude-->
+            <!--});-->
+
+            <!--// Create a marker for the end point:-->
+            <!--var endMarker = new H.map.Marker({-->
+                <!--lat: endPoint.latitude,-->
+                <!--lng: endPoint.longitude-->
+            <!--});-->
+
+            <!--// Add the route polyline and the two markers to the map:-->
+            <!--map.addObjects([routeLine, startMarker, endMarker]);-->
+
+            <!--// Set the map's viewport to make the whole route visible:-->
+            <!--map.setViewBounds(routeLine.getBounds());-->
+        <!--}-->
+    <!--};-->
+
+    <!--// Get an instance of the routing service:-->
+    <!--var router = platform.getRoutingService();-->
+
+    <!--// Call calculateRoute() with the routing parameters,-->
+    <!--// the callback and an error callback function (called if a-->
+    <!--// communication error occurs):-->
+    <!--router.calculateRoute(routingParameters, onResult,-->
+            <!--function(error) {-->
+                <!--alert(error.message);-->
+            <!--});-->
+<!--</script>-->
+<!--</body>-->
 
 </html>
