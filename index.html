@@ -2,21 +2,17 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>ChoosGo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!--Font-->
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
 
@@ -62,6 +58,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Where are we going today?</h2>
+                    <h3 id="load"></h3>
                 </div>
             </div>
         </div>
@@ -124,7 +121,7 @@
                 <div class="pricetab">
                     <h1 id="1"> Activity 1 </h1>
                     <div class="price">
-                        <span> <img height = 100px id = "1img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
+                        <span> <img class = "picture" height = 100px id = "1img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
                     </div>
                     <div class="infos">
                         <h3> 9:30 - 12:30 AM </h3>
@@ -139,7 +136,7 @@
                 <div class="pricetab">
                     <h1 id="2"> Activity 2 </h1>
                     <div class="price">
-                        <span> <img height = 100px id = "2img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
+                        <span> <img class = "picture" height = 100px id = "2img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
                     </div>
                     <div class="infos">
                         <h3> 12:30 - 3:30 PM </h3>
@@ -154,7 +151,7 @@
                 <div class="pricetab">
                     <h1 id = "3"> Activity 3 </h1>
                     <div class="price">
-                        <span> <img height = 100px id = "3img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
+                        <span> <img class = "picture" height = 100px id = "3img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
                     </div>
                     <div class="infos">
                         <h3> 3:30 - 6:30 PM </h3>
@@ -169,7 +166,7 @@
                 <div class="pricetab">
                     <h1 id = "4"> Activity 4 </h1>
                     <div class="price">
-                        <span> <img height = 100px id = "4img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
+                        <span> <img class = "picture" height = 100px id = "4img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
                     </div>
                     <div class="infos">
                         <h3> 6:30 - 9:30 PM </h3>
@@ -184,7 +181,7 @@
                 <div class="pricetab">
                     <h1 id="5"> Activity 5 </h1>
                     <div class="price">
-                        <span> <img height = 100px id = "5img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
+                        <span> <img class = "picture" height = 100px id = "5img" src="http://orig15.deviantart.net/654a/f/2012/269/0/3/panda_png__3_by_kairiedits-d5fz1x8.png" </span>
                     </div>
                     <div class="infos">
                         <h3> 9:30 - 12:30 AM </h3>
@@ -201,11 +198,13 @@
     <script>
         function updateCityList1(){
             var city = document.getElementById("city1").value;
+            document.getElementById("load").innerHTML = "Loading";
             addCity(city);
         }
 
         function updateCityList(){
             var city = document.getElementById("city").value;
+            document.getElementById("load").innerHTML = "Loading";
             addCity(city);
         }
 
@@ -213,6 +212,7 @@
             var counter = 1;
             for(var looper in informationStored){
                 document.getElementById(counter.toString()).innerHTML = looper;
+                document.getElementById(counter.toString().concat("img")).src = informationStored[looper].imgLink;
                 if(counter == 5){
                     break;
                 }
@@ -362,6 +362,7 @@
                 var totalLength = Object.keys(map).length;
                 for(var title in map) {
                     var path = map[title];
+                    console.log(path);
                     addMonuments(title, path, totalLength);
                 }
             }, function(error) {
@@ -371,15 +372,16 @@
         function addMonuments(title, path, totalLength){
             client.invokeApi("individual_query", {
                 body: null,
-                parameters: {title:title, city:city},
+                parameters: {path: path.searchquery},
                 method: "post"
             }).done(function (rslts) {
                         var m = rslts.result.message;
-                        informationStored[title] = { coordinates: m, searchquery: path };
-                        console.log("Hello, My name is Rick");
-                        console.log(informationStored)
-                        if(Object.keys(informationStored).length >= totalLength)
+                        informationStored[title] = { coordinates: m, searchquery: path.searchquery,imgLink: path.img};
+                        document.getElementById("load").innerHTML = "Fun Awaits!"
+                        if(Object.keys(informationStored).length >= totalLength) {
+                            document.getElementById("load").innerHTML = "";
                             fillDay(informationStored);
+                        }
                     },
                     function(error) {
                         console.log(error);

@@ -330,10 +330,17 @@ body{
     width:120px;
     height:120px;
     border-radius:50%;
-    border:1px solid #ff9547;
+    border:3px solid #3E3E3E;
     margin:5% auto 0 auto;
     text-align:center;
 }
+
+.picture{
+    width: 120px;
+    height: 120px;
+    border-radius:50%;
+}
+
 .pricemid{
     width:120px;
     height:120px;
