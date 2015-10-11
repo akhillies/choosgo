@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <label class="select-label"> Preferences </label>
+        <label class="select-label"> </label>
         <select id ="city" class="cs-select cs-skin-slide">
             <option value="City"> City </option>
             <option value="San Francisco"> San Francisco </option>
@@ -104,7 +104,16 @@
             <option value="PublicTransport"> Significant Other </option>
         </select>
 
-        <p><input type="submit" value="Plan!" class="midnight-blue-flat-button" onclick="updateCity()">
+        <form class="form-style-4" action="" method="post">
+            <label for="field1">
+                <span>City Name</span><input type="text" id="city1" required="true" />
+            </label>
+            <label>
+                <span>&nbsp;</span><input type="button" onclick = "updateCityList1()" value="Plan!" />
+            </label>
+        </form>
+
+        <p><input type="submit" value="Plan!" class="midnight-blue-flat-button" onclick="updateCityList()">
         </p>
 
     </section>
@@ -190,12 +199,16 @@
     </section>
 
     <script>
-        function updateCity(){
-            var city = document.getElementById("city").value;
-            console.log(city);
-            document.getElementById("5").innerHTML = "CAN YOU FUCKING SEE ME?";
+        function updateCityList1(){
+            var city = document.getElementById("city1").value;
             addCity(city);
         }
+
+        function updateCityList(){
+            var city = document.getElementById("city").value;
+            addCity(city);
+        }
+
         function fillDay(informationStored){
             var counter = 1;
             for(var looper in informationStored){
@@ -373,6 +386,14 @@
                     });
         }
 
+    </script>
+
+    <script type="text/javascript">
+        //auto expand textarea
+        function adjust_textarea(h) {
+            h.style.height = "20px";
+            h.style.height = (h.scrollHeight)+"px";
+        }
     </script>
 
 </body>
