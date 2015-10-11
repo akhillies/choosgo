@@ -17,22 +17,9 @@
     // Obtain the default map types from the platform object:
     var defaultLayers = platform.createDefaultLayers();
 
-    // Instantiate (and display) a map object:
-    var map = new H.Map(
-        document.getElementById('mapContainer'),
-        defaultLayers.satellite.map,
-        {
-         zoom: 10,
-         center: { lat: 50, lng: 50.4 }
-        });
-  
-    
-    
-
     //sets coordinates for waypoints
     function setWaypoints (Object info){
       var array = new Array();
-      array[0] = 'geo!50.1120423728813,8.68340740740811';
       var count = 0;
       for (var looper in info) {
         array[count] = 'geo!'.concat(info.looper[0]).concat(',').concat(info.looper[1]);
@@ -64,7 +51,7 @@
         avgLat = avgLat + (Float.parseFloat(info.looper[0]))/5;
         avgLon = avgLon + (Float.parseFloat(info.looper[1]))/5;
       }
-      
+
       var map = new H.Map(
         document.getElementById('mapContainer'),
         defaultLayers.satellite.map,
