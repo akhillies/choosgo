@@ -1,5 +1,4 @@
 // Code goes here
-
 angular.module('myApp', []);
 
 angular.module('myApp').directive('actorTile', function () {
