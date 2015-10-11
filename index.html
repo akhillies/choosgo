@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
     <script data-require="angular.js@*" data-semver="1.4.0-beta.6" src="https://code.angularjs.org/1.4.0-beta.6/angular.js"></script> 
-    <link rel="stylesheet" href="html/style.css" /> 
+    <link rel="stylesheet" href="css/style.css" /> 
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> 
     <script src="js/script.js"></script> 
     <script src="js/routing.js"></script> 
@@ -27,15 +27,8 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <div class="panel">
-            <p>To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
-            <div id='planned day' ng-repeat="l in locations">
-                <div datar-base datar="l"></div>
-            </div>
-            <div id='mapContainer' style="position:absolute; width:50%; height:50%; background:grey" ></div>
-            <script>
-                router.calculateRouter(routingParameters, onResult);
-            </script>
+        <div class="panel" ng-repeat="l in locations">
+            <div datar-base datar="l"></div>
         </div>
     </div>
 </div>
