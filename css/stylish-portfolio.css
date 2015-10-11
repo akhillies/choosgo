@@ -162,65 +162,30 @@ hr.small {
     -o-background-size: cover;
 }
 
-/* About */
-
-.about {
-    padding: 50px 0;
-}
-
-/* Services */
-
-.services {
-    padding: 50px 0;
-}
-
-.service-item {
-    margin-bottom: 30px;
-}
-
 /* Callout */
 
 .callout {
     display: table;
     width: 100%;
-    height: 400px;
+    position: relative;
+    height: 600px;
     color: #fff;
     background: url(../img/callout.jpg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+
 }
 
-/* Portfolio */
+.plannedDay{
+    height: 300px;
 
-.portfolio {
-    padding: 50px 0;
 }
 
-.portfolio-item {
-    margin-bottom: 30px;
+.routeMap {
+    height: 400px
 }
-
-.img-portfolio {
-    margin: 0 auto;
-}
-
-.img-portfolio:hover {
-    opacity: 0.8;
-}
-
-/* Call to Action */
-
-.call-to-action {
-    padding: 50px 0;
-}
-
-.call-to-action .btn {
-    margin: 10px;
-}
-
-/* Map */
 
 .map {
     height: 500px;
