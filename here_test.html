@@ -18,24 +18,23 @@
     var defaultLayers = platform.createDefaultLayers();
 
     // Instantiate (and display) a map object:
-    var map = new H.Map(
-        document.getElementById('mapContainer'),
-        defaultLayers.satellite.map,
-        {
-         zoom: 10,
-         center: { lat: 50, lng: 50.4 }
-        });
+    // var map = new H.Map(
+    //     document.getElementById('mapContainer'),
+    //     defaultLayers.satellite.map,
+    //     {
+    //      zoom: 10,
+    //      center: { lat: 50, lng: 50.4 }
+    //     });
   
     
     
 
     //sets coordinates for waypoints
-    function setWaypoints (Object info){
+    function setWaypoints (info){
       var array = new Array();
-      array[0] = 'geo!50.1120423728813,8.68340740740811';
       var count = 0;
       for (var looper in info) {
-        array[count] = 'geo!'.concat(info.looper[0]).concat(',').concat(info.looper[1]);
+        array[count] = 'geo!'.concat(info[looper].coordinates);
         count += 1;
       }
       var routingParameters = {
@@ -56,13 +55,14 @@
       putPoints();
     }
 
-    function drawMap (Object info) {
+    function drawMap (info) {
       // Create the parameters for the routing request:
       var avgLat = 0;
       var avgLon = 0;
       for (var looper in info) {
-        avgLat = avgLat + (Float.parseFloat(info.looper[0]))/5;
-        avgLon = avgLon + (Float.parseFloat(info.looper[1]))/5;
+        var coordinatePair = info[looper].coordinates.split(",");
+        avgLat = avgLat + (parseFloat(coordinatePair[0]))/5;
+        avgLon = avgLon + (parseFloat(coordinatePair[1]))/5;
       }
       
       var map = new H.Map(
@@ -156,6 +156,7 @@
         function(error) {
             alert(error.message);
         });
+        setWaypoints(info);
       }
   </script>
 </body>
