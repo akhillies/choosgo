@@ -179,16 +179,30 @@ hr.small {
 }
 
 .plannedDay{
-    height: 300px;
+    display: table;
+    width: 100%;
+    position: relative;
+    height: 600px;
+    color: #fff;
+    background: url(../img/Where.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 
 }
 
 .routeMap {
-    height: 400px
-}
+    width: 100%;
+    position: relative;
+    height: 600px;
+    color: #fff;
+    background: url(../img/Where.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 
-.map {
-    height: 500px;
 }
 
 @media(max-width:768px) {
