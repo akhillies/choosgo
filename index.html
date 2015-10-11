@@ -63,7 +63,7 @@
         </div>
 
         <label class="select-label"> Preferences </label>
-        <select class="cs-select cs-skin-slide">
+        <select name ="Preferences" class="cs-select cs-skin-slide">
             <option value=""> City </option>
             <option value="San Francisco"> San Francisco </option>
             <option value="Boston"> Boston </option>
@@ -73,7 +73,7 @@
         </select>
 
         <label class="select-label"> </label>
-        <select class="cs-select cs-skin-slide">
+        <select name ="PriceRange" class="cs-select cs-skin-slide">
             <option value=""> Price Range </option>
             <option value="--"> -- </option>
             <option value="$"> $ </option>
@@ -83,7 +83,7 @@
         </select>
 
         <label class="select-label"> </label>
-        <select class="cs-select cs-skin-slide">
+        <select id="Transport" class="cs-select cs-skin-slide">
             <option value=""> Transportation </option>
             <option value="Walking"> Walking </option>
             <option value="Biking"> Biking </option>
@@ -92,13 +92,17 @@
         </select>
 
         <label class="select-label"> </label>
-        <select class="cs-select cs-skin-slide">
-            <option value=""> Companions </option>
+        <select id="companions" class="cs-select cs-skin-slide">
+            <option value="Reached"> Companions </option>
             <option value="Walking"> Family </option>
             <option value="Biking"> Friends </option>
             <option value="PublicTransport"> Acquaintances </option>
             <option value="PublicTransport"> Significant Other </option>
         </select>
+
+        <script>
+            console.log(x);
+        </script>
 
     </section>
 
