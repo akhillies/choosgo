@@ -3,6 +3,7 @@ div.cs-select {
 	display: compact;
 	position: relative;
 	text-align: center;
+	float: left;
 	background: #fff;
 	z-index: 100;
 	width: 100%;

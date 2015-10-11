@@ -41,6 +41,9 @@ div.cs-skin-slide::before {
 .cs-skin-slide > span {
 	height: 80px;
 	line-height: 32px;
+	position: relative;
+	top: 5%;
+	left: 5%;
 	-webkit-transition: text-indent 0.3s, opacity 0.3s;
 	transition: text-indent 0.3s, opacity 0.3s;
 }
