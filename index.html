@@ -34,6 +34,7 @@
     <![endif]-->
 
     <!--ChoosGo Stuff-->
+    <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" /> 
     <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" 
@@ -63,8 +64,8 @@
         </div>
 
         <label class="select-label"> Preferences </label>
-        <select name ="Preferences" class="cs-select cs-skin-slide">
-            <option value=""> City </option>
+        <select id ="city" class="cs-select cs-skin-slide">
+            <option value="City"> City </option>
             <option value="San Francisco"> San Francisco </option>
             <option value="Boston"> Boston </option>
             <option value="Chicago"> Chicago </option>
@@ -73,7 +74,7 @@
         </select>
 
         <label class="select-label"> </label>
-        <select name ="PriceRange" class="cs-select cs-skin-slide">
+        <select id="priceRange" class="cs-select cs-skin-slide">
             <option value=""> Price Range </option>
             <option value="--"> -- </option>
             <option value="$"> $ </option>
@@ -100,11 +101,45 @@
             <option value="PublicTransport"> Significant Other </option>
         </select>
 
-        <script>
-            console.log(x);
-        </script>
+        <p><input type="submit" value="Plan!" class="midnight-blue-flat-button" onclick="updateCity()">
+        </p>
 
     </section>
+
+    <!--Day Plan-->
+    <section id = "dayPlan" class = "dayPlanned">
+        <div class="text-vertical-center">
+            <h1 id = "changeMe"> What city am I thinking of? </h1>
+        </div>
+        <div class = "left">
+            <p id = "1"></p>
+            <p id = "2"></p>
+            <p id = "3"></p>
+            <p id = "4"></p>
+        </div>
+        <div class = "right">
+            <p id = "5"></p>
+            <p id = "6"></p>
+            <p id = "7"></p>
+            <p id = "8"></p>
+        </div>
+    </section>
+
+    <script>
+        function updateCity(){
+            var city = document.getElementById("city").value;
+            console.log(city);
+            document.getElementById("5").innerHTML = "CAN YOU FUCKING SEE ME?";
+            addCity(city);
+        }
+        function fillDay(informationStored){
+            var counter = 1;
+            for(var looper in informationStored){
+                document.getElementById(counter.toString()).innerHTML = looper;
+                counter += 1;
+            }
+        }
+    </script>
 
     <section id="portfolio" class="routeMap">
         <div id='mapContainer' style="position:absolute; width:100%; height:100%; background:grey" ></div>
@@ -224,6 +259,55 @@
                 alert(error.message);
             });
 </script>
+
+    <script>
+        var informationStored = {};
+        var client = new WindowsAzure.MobileServiceClient(
+                "https://choosgo.azure-mobile.net/",
+                "pOcvEDYJeHjLDeRsaDcQZXFzeBREJm96"
+        );
+
+        function addCity(city){
+            client = new WindowsAzure.MobileServiceClient(
+                    "https://choosgo.azure-mobile.net/",
+                    "pOcvEDYJeHjLDeRsaDcQZXFzeBREJm96"
+            );
+            client.invokeApi("bing_query", {
+                body: null,
+                parameters: {city: city},
+                method: "post"
+            }).done(function (results) {
+                informationStored = {};
+                var map = results.result.message;
+                var totalLength = Object.keys(map).length;
+                for(var title in map) {
+                    var path = map[title];
+                    addMonuments(title, path, totalLength);
+                }
+            }, function(error) {
+                console.log(error);
+            });
+        }
+        function addMonuments(title, path, totalLength){
+            client.invokeApi("individual_query", {
+                body: null,
+                parameters: {title:title, city:city},
+                method: "post"
+            }).done(function (rslts) {
+                        var m = rslts.result.message;
+                        informationStored[title] = { coordinates: m, searchquery: path };
+                        console.log("Hello, My name is Rick");
+                        console.log(informationStored)
+                        if(Object.keys(informationStored).length >= totalLength)
+                            fillDay(informationStored);
+                    },
+                    function(error) {
+                        console.log(error);
+                    });
+        }
+
+    </script>
+
 </body>
 
 </html>
