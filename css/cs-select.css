@@ -1,9 +1,9 @@
 /* Default custom select styles */
 div.cs-select {
-	display: inline-block;
+	display: compact;
 	vertical-align: top;
-	position: relative;
-	text-align: left;
+	position: inherit;
+	text-align: center;
 	background: #fff;
 	z-index: 100;
 	width: 100%;
