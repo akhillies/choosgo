@@ -10,6 +10,7 @@ html,
 body {
     width: 100%;
     height: 100%;
+    background: black;
 }
 
 body {
@@ -144,9 +145,6 @@ hr.small {
     transition: all 0.4s ease 0s;
 }
 
-.toggle {
-    margin: 5px 5px 0 0;
-}
 
 /* Header */
 
@@ -156,10 +154,9 @@ hr.small {
     width: 100%;
     height: 100%;
     background: url(../img/bg.jpg) no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
+    background-position: 0 .1;
     background-size: cover;
-    -o-background-size: cover;
+    top: -3%;
 }
 
 /* Callout */
@@ -181,6 +178,7 @@ hr.small {
 .plannedDay{
     display: table;
     width: 100%;
+    top: -2%;
     position: relative;
     height: 600px;
     color: #fff;
@@ -195,7 +193,8 @@ hr.small {
     display: table;
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 250px;
+    top: -3%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -208,12 +207,24 @@ hr.small {
     position: relative;
     height: 600px;
     color: #fff;
+    top: -1%;
     background: url(../img/Where.jpg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 
+}
+
+.mapR {
+    position:absolute;
+    width:100%;
+    height:75%;
+    background: url(../img/Trevor.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 @media(max-width:768px) {
@@ -233,8 +244,8 @@ footer {
 .midnight-blue-flat-button {
     position: relative;
     vertical-align: top;
-    width: 100%;
-    height: 60px;
+    width: 15%;
+    height: 45px;
     padding: 0;
     font-size: 22px;
     color: white;
@@ -270,7 +281,6 @@ h1,h2,h3,h4,h5,h6{cursor:pointer;}
     font-size:14px;
     color:#fff;
     text-align:center;
-    margin-top:10px;
 }
 .intro a{
     color:#fff;
@@ -280,8 +290,6 @@ h1,h2,h3,h4,h5,h6{cursor:pointer;}
 .intro img{
     width:20px;
     height:20px;
-    margin-left:5px;
-    margin-right:5px;
     position:relative;
     top:5px;
 }
@@ -294,18 +302,16 @@ body{
     -ms-user-select: none;
     user-select: none;
 }
-#container{
-    width:80%;
-    min-width:1100px;
-    min-height:500px;
-    margin:3% auto 0 auto;
-}
 .pricetab{
     width:20%;
-    min-width:220px;
+    height: 100%px;
+    min-width:200px;
+    overflow: hidden;
     background: linear-gradient(#555, #444);
     float:left;
-    margin-top:.2%;
+    position: relative;
+    margin-bottom: 3%;
+    margin-top: 3%;
     box-shadow:1px 1px 5px rgba(0, 0, 0, .5);
 }
 .pricetabmid{
@@ -481,9 +487,12 @@ h3{
 }
 
 .form-style-4{
-    width: 450px;
-    font-size: 16px;
+    width: 200px;
+    font-size: 13px;
     background: #495C70;
+    position: relative;
+    top: 25%;
+    left: 85%;
     padding: 30px 30px 15px 30px;
     border: 5px solid #53687E;
 }
@@ -504,8 +513,8 @@ h3{
     margin-bottom: 10px;
 }
 .form-style-4 label > span{
-    display: inline-block;
-    float: left;
+    display: compact;
+    float: center;
     width: 150px;
 }
 .form-style-4 input[type=text],

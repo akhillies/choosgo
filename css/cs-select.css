@@ -1,7 +1,7 @@
 /* Default custom select styles */
 div.cs-select {
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
 	position: relative;
 	text-align: left;
 	background: #fff;
