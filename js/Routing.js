@@ -1,4 +1,4 @@
-<script>
+
 // Initialize the platform object:
 var platform = new H.service.Platform({
     'app_id': 'zrVgyWR41xcFCQZBicxr',
@@ -94,5 +94,3 @@ router.calculateRoute(routingParameters, onResult,
     function(error) {
         alert(error.message);
     });
-
-</script>
