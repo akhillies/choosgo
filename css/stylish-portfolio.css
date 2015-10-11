@@ -247,10 +247,12 @@ footer {
 .midnight-blue-flat-button {
     position: relative;
     vertical-align: top;
-    width: 15%;
-    height: 45px;
+    width: 25%;
+    left:75%;
+    top: 100%;
+    height: 55px;
     padding: 0;
-    font-size: 22px;
+    font-size: 36px;
     color: white;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
