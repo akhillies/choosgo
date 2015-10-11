@@ -86,7 +86,10 @@
             <option value="PublicTransport"> Acquaintances </option>
             <option value="PublicTransport"> Significant Other </option>
         </select>
-
+<br>
+        <p><input type="submit" value="Plan!" class="midnight-blue-flat-button" onclick="updateCityList()">
+        </p>
+<br>
         <form class="form-style-4" action="" method="post">
             <label for="field1">
                 <span>City Name</span><input type="text" id="city1" required="true" />
@@ -95,9 +98,6 @@
                 <span>&nbsp;</span><input type="button" onclick = "updateCityList1()" value="Plan!" />
             </label>
         </form>
-
-        <p><input type="submit" value="Plan!" class="midnight-blue-flat-button" onclick="updateCityList()">
-        </p>
     </section>
     <!--Day Plan-->
     <section id = "dayPlan" class = "dayPlanned">
@@ -344,7 +344,7 @@
                 'representation': 'display'
             };
             drawMap(info);
-            putPoints();
+            putPoints(info);
         }
 
         function drawMap (info) {
@@ -354,7 +354,6 @@
             var count = 4;
             for (var loop in info) {
                 var coordinatePair = info[loop].coordinates.split(",");
-                console.log(coordinatePair);
                 avgLat = avgLat + (parseFloat(coordinatePair[0]))/5;
                 avgLon = avgLon + (parseFloat(coordinatePair[1]))/5;
                 if(count == 0)
@@ -372,7 +371,7 @@
         }
 
         // Define a callback function to process the routing response:
-        function putPoints() {
+        function putPoints(info) { //CHANGE
             var onResult = function(result) {
                 var route,
                         routeShape,
@@ -381,57 +380,89 @@
                         midPoint1,
                         midPoint2,
                         endPoint,
+                        text0,
+                        text1,
+                        text2,
+                        text3,
+                        text4,
                         strip;
                 if(result.response.route) {
-                    // Pick the first route from the response:
+// Pick the first route from the response:
                     route = result.response.route[0];
-                    // Pick the route's shape:
+// Pick the route's shape:
                     routeShape = route.shape;
 
-                    // Create a strip to use as a point source for the route line
+// Create a strip to use as a point source for the route line
                     strip = new H.geo.Strip();
 
-                    // Push all the points in the shape into the strip:
+// Push all the points in the shape into the strip:
                     routeShape.forEach(function(point) {
                         var parts = point.split(',');
                         strip.pushLatLngAlt(parts[0], parts[1]);
                     });
 
-                    // Retrieve the mapped positions of the requested waypoints:
+// Retrieve the mapped positions of the requested waypoints:
                     startPoint = route.waypoint[0].mappedPosition;
                     midPoint0 = route.waypoint[1].mappedPosition;
                     midPoint1 = route.waypoint[2].mappedPosition;
                     midPoint2 = route.waypoint[3].mappedPosition;
                     endPoint = route.waypoint[4].mappedPosition;
 
-                    // Create a polyline to display the route:
+// Create a polyline to display the route:
                     var routeLine = new H.map.Polyline(strip, {
                         style: { strokeColor: 'blue', lineWidth: 10 }
                     });
-                    // Create a marker for the start point:
+                    var count = 0;
+                    for (var looper in info) {
+                        if (count == 0) {
+                            text0 = looper;
+                        }
+                        if (count == 1) {
+                            text1 = looper;
+                        }
+                        if (count == 2) {
+                            text2 = looper;
+                        }
+                        if (count == 3) {
+                            text3 = looper;
+                        }
+                        if (count == 4) {
+                            text4 = looper;
+                        }
+                        if(count == 5){
+                            break;
+                        }
+                        count += 1;
+                    }
+// Create a marker for the start point:
                     var startMarker = new H.map.Marker({
                         lat: startPoint.latitude,
-                        lng: startPoint.longitude
+                        lng: startPoint.longitude,
+                        text: text0
                     });
 
                     var midMarker0 = new H.map.Marker({
                         lat: midPoint0.latitude,
-                        lng: midPoint0.longitude
+                        lng: midPoint0.longitude,
+                        text: text1
                     });
 
                     var midMarker1 = new H.map.Marker({
                         lat: midPoint1.latitude,
-                        lng: midPoint1.longitude
+                        lng: midPoint1.longitude,
+                        text: text2
                     });
 
                     var midMarker2 = new H.map.Marker({
                         lat: midPoint2.latitude,
-                        lng: midPoint2.longitude
+                        lng: midPoint2.longitude,
+                        text: text3
                     });
-                    // Create a marker for the end point:
+// Create a marker for the end point:
                     var endMarker = new H.map.Marker({
                         lat: endPoint.latitude,
-                        lng: endPoint.longitude
+                        lng: endPoint.longitude,
+                        text: text4
                     });
 
                     // Add the route polyline and the two markers to the map:
@@ -452,7 +483,6 @@
                     function(error) {
                         alert(error.message);
                     });
-            setWaypoints(info);
         }
     </script>
 

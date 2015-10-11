@@ -180,7 +180,6 @@ hr.small {
 }
 
 .plannedDay{
-    display: table;
     width: 100%;
     position: relative;
     height: 600px;
@@ -270,7 +269,9 @@ footer {
 }
 
 /* General */
-h1,h2,h3,h4,h5,h6{cursor:pointer;}
+h1,h2,h3,h4,h5,h6{cursor:pointer;
+white-space: nowrap;
+}
 
 /* Intro */
 
@@ -308,7 +309,7 @@ body{
 }
 .pricetab{
     width:20%;
-    height: 100%px;
+    height: 100%;
     min-width:200px;
     overflow: hidden;
     background: linear-gradient(#555, #444);
@@ -495,8 +496,7 @@ h3{
     font-size: 13px;
     background: #495C70;
     position: relative;
-    top: 25%;
-    left: 85%;
+    top: 45%;
     padding: 30px 30px 15px 30px;
     border: 5px solid #53687E;
 }
@@ -527,7 +527,7 @@ h3{
     background: transparent;
     border: none;
     border-bottom: 1px dashed #83A4C5;
-    width: 275px;
+    width: 100%;
     outline: none;
     padding: 0px 0px 0px 0px;
     font-style: italic;
