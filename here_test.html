@@ -78,7 +78,7 @@
     }
 
     // Define a callback function to process the routing response:
-    function putPoints() {
+    function putPoints(info) { //CHANGE
     var onResult = function(result) {
       var route,
           routeShape,
@@ -87,6 +87,11 @@
           midPoint1,
           midPoint2,
           endPoint,
+          text0,
+          text1,
+          text2.
+          text3,
+          text4,
           strip;
       if(result.response.route) {
         // Pick the first route from the response:
@@ -114,30 +119,56 @@
         var routeLine = new H.map.Polyline(strip, {
           style: { strokeColor: 'blue', lineWidth: 10 }
         });
+        var count = 0;
+        for (var looper in info) {
+          if (count == 0) {
+            text0 = looper;
+          }
+          if (count == 1) {
+            text1 = looper;
+          }
+          if (count == 2) {
+            text2 = looper;
+          }
+          if (count == 3) {
+            text3 = looper;
+          }
+          if (count == 4) {
+            text4 = looper;
+          }
+          count += 1;
+
+
+        }
         // Create a marker for the start point:
         var startMarker = new H.map.Marker({
           lat: startPoint.latitude,
-          lng: startPoint.longitude
+          lng: startPoint.longitude,
+          text: text0
         });
 
         var midMarker0 = new H.map.Marker({
           lat: midPoint0.latitude,
-          lng: midPoint0.longitude
+          lng: midPoint0.longitude,
+          text: text1
         });
 
         var midMarker1 = new H.map.Marker({
           lat: midPoint1.latitude,
-          lng: midPoint1.longitude
+          lng: midPoint1.longitude,
+          text: text2
         });
 
         var midMarker2 = new H.map.Marker({
           lat: midPoint2.latitude,
-          lng: midPoint2.longitude
+          lng: midPoint2.longitude,
+          text: text3
         });
         // Create a marker for the end point:
         var endMarker = new H.map.Marker({
           lat: endPoint.latitude,
-          lng: endPoint.longitude
+          lng: endPoint.longitude,
+          text: text4
         });
 
         // Add the route polyline and the two markers to the map:
